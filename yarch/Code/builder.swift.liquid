@@ -5,19 +5,14 @@
 
 import UIKit
 
-class {{ module_info.name }}Builder: ModuleBuilder {
+class {{ module_info.name }}Builder: {{ prefix }}ModuleBuilder {
 
-    var initialState: {{ module_info.name }}.ViewControllerState?
-
-    func set(initialState: {{ module_info.name }}.ViewControllerState) -> {{ module_info.name }}Builder {
-        self.initialState = initialState
-        return self
-    } 
+    required init() {}
 
     func build() -> UIViewController {
-        let presenter = {{ module_info.name }}Presenter()
-        let interactor = {{ module_info.name }}Interactor(presenter: presenter)
-        let controller = {{ module_info.name }}ViewController(interactor: interactor)
+        let presenter = {{ prefix}}{{ module_info.name }}Presenter()
+        let interactor = {{ prefix }}{{ module_info.name }}Interactor(presenter: presenter)
+        let controller = {{ prefix }}{{ module_info.name }}ViewController(interactor: interactor)
 
         presenter.viewController = controller
         return controller
