@@ -10,9 +10,11 @@ class {{ module_info.name }}Builder: {{ prefix }}ModuleBuilder {
     required init() {}
 
     func build() -> UIViewController {
+	let router = {{ prefix }}{{ module_info.name }}Router()
+	let provider = {{ prefix }}{{ module_info.name }}Provider()
         let presenter = {{ prefix}}{{ module_info.name }}Presenter()
-        let interactor = {{ prefix }}{{ module_info.name }}Interactor(presenter: presenter)
-        let controller = {{ prefix }}{{ module_info.name }}ViewController(interactor: interactor)
+        let interactor = {{ prefix }}{{ module_info.name }}Interactor(presenter: presenter, provider: provider)
+        let controller = {{ prefix }}{{ module_info.name }}ViewController(interactor: interactor, router: router)
 
         presenter.viewController = controller
         return controller

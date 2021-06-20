@@ -4,19 +4,14 @@
 
 import UIKit
 
-extension {{ module_info.name }}View {
+extension {{ prefix }}{{ module_info.name }}View {
     struct Appearance {
         let exampleOffset: CGFloat = 10
     }
 }
 
-class {{ module_info.name }}View: UIView {
+final class {{ prefix }}{{ module_info.name }}View: UIView {
     let appearance = Appearance()
-
-    fileprivate(set) lazy var customView: UIView = {
-        let view = UIView()
-        return view
-    }()
 
     override init(frame: CGRect = CGRect.zero) {
         super.init(frame: frame)
@@ -29,7 +24,6 @@ class {{ module_info.name }}View: UIView {
     }
 
     func addSubviews(){
-        addSubview(customView)
     }
 
     func makeConstraints() {
