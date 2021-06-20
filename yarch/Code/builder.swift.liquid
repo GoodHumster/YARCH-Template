@@ -16,7 +16,7 @@ class {{ module_info.name }}Builder: {{ prefix }}ModuleBuilder {
         let interactor = {{ prefix }}{{ module_info.name }}Interactor(presenter: presenter, provider: provider)
         let controller = {{ prefix }}{{ module_info.name }}ViewController(interactor: interactor, router: router)
 
-        presenter.viewController = controller
+        presenter.view = controller
         return controller
     }
 }

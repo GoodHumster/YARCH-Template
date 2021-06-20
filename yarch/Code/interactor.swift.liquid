@@ -7,7 +7,7 @@ protocol {{ prefix }}{{ module_info.name }}BusinessLogic {
 }
 
 final class {{ prefix }}{{ module_info.name }}Interactor: {{ prefix }}{{ module_info.name }}BusinessLogic {
-    let presenter: {{ perfix }}{{ module_info.name }}PresentationLogic
+    let presenter: {{ prefix }}{{ module_info.name }}PresentationLogic
     let provider: {{ prefix }}{{ module_info.name }}ProviderProtocol
 
     init(presenter: {{ prefix }}{{ module_info.name }}PresentationLogic, provider: {{ prefix }}{{ module_info.name }}ProviderProtocol) {
